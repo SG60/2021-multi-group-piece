@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "2021-multi-group-piece"
+version = "0.1.0"
+description = ""
+authors = ["Sam Greening <samjg60@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+sympy = "^1.8"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

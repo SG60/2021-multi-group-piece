@@ -1,10 +1,6 @@
 from bisect import bisect_left
 from collections.abc import Iterable
-from typing import Tuple
-
-from sympy import Integral, symbols
-
-# from typing import Dict, List, Tuple
+from sympy import Integral, symbols, S
 
 # Tool for custom rounding
 class CustomRound:
@@ -41,14 +37,12 @@ custom_round_values_base = [
 custom_round_values = [i + j for i in range(20) for j in custom_round_values_base]
 custom_round = CustomRound(custom_round_values)
 
-a, a1, b, b1, c, c1, d, s = symbols("a:2 b:2 c:2 d s")
-t, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10 = symbols("t:11")
-
 
 # Ramp code
 # %%
 def ramp(start_tempo, end_tempo, total_beats, bound_beat, bottom_bound_beat=0):
     """This integral is equal to the timecode at the bound_beat."""
+    x = symbols("x")
     return Integral(
         1
         / (
@@ -84,8 +78,9 @@ def separatetempolist(combined_list: list) -> Iterable[tuple]:
     return zip(*(separate(i) for i in combined_list))
 
 
-def _demotempolist():
+def test_tempolist():
     t, t1, t2 = symbols("t:3")
     tempolist_combined = [(t, "start"), t1, (t2, "somewhere")]
     tempolist, sections = separatetempolist(tempolist_combined)
-    return tempolist, sections
+    print(f"tempolist: {tempolist}", f"sections: {sections}")
+    return (tempolist == (t, t1, t2)) & (sections == ("start", "", "somewhere"))

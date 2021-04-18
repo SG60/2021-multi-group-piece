@@ -1,6 +1,7 @@
 from bisect import bisect_left
 from collections.abc import Iterable
-from sympy import Integral, symbols, S
+from sympy import Integral, symbols, S, Symbol, Expr
+from dataclasses import dataclass
 
 # Tool for custom rounding
 class CustomRound:
@@ -83,4 +84,23 @@ def test_tempolist():
     tempolist_combined = [(t, "start"), t1, (t2, "somewhere")]
     tempolist, sections = separatetempolist(tempolist_combined)
     print(f"tempolist: {tempolist}", f"sections: {sections}")
-    return (tempolist == (t, t1, t2)) & (sections == ("start", "", "somewhere"))
+    assert (tempolist == (t, t1, t2)) & (sections == ("start", "", "somewhere"))
+
+
+def test_Section():
+    t, t1, t2 = symbols("t:3")
+    s1 = Section(t, "start")
+    s2 = Section(S("t2"))
+    s2.name = "middle"
+    assert s1.name == "start"
+    assert s2.name == "middle"
+    expression = s1.tempo + t1 * s2.tempo
+    assert expression.subs({t: 0, t1: 5}) == 5 * t2
+
+
+@dataclass
+class Section:
+    """Tempo Section"""
+
+    tempo: Expr = Symbol("t")
+    name: str = ""

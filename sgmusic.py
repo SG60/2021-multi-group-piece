@@ -44,12 +44,10 @@ custom_round = CustomRound(custom_round_values)
 def ramp(start_tempo, end_tempo, total_beats, bound_beat, bottom_bound_beat=0):
     """This integral is equal to the timecode at the bound_beat."""
     x = symbols("x")
+    a = S(start_tempo)
+    b = S(end_tempo)
     return Integral(
-        1
-        / (
-            start_tempo / 60
-            + (x / total_beats) * (S(end_tempo) / 60 - start_tempo / 60)
-        ),
+        1 / (a / 60 + (x / total_beats) * (b / 60 - a / 60)),
         (x, bottom_bound_beat, bound_beat),
     )
 

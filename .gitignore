@@ -130,3 +130,5 @@ dmypy.json
 
 # nohup logs
 nohup.out
+
+.vscode/

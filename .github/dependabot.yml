@@ -1,0 +1,3 @@
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"

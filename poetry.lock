@@ -352,6 +352,22 @@ cffi = {version = "*", markers = "implementation_name == \"pypy\""}
 py = {version = "*", markers = "implementation_name == \"pypy\""}
 
 [[package]]
+name = "sgmusic"
+version = "0.1.0"
+description = ""
+category = "main"
+optional = false
+python-versions = ">=3.9"
+develop = true
+
+[package.dependencies]
+sympy = "^1.8"
+
+[package.source]
+type = "directory"
+url = "../sgmusic"
+
+[[package]]
 name = "six"
 version = "1.15.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -411,7 +427,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9"
-content-hash = "f1cbd97d0d7e6dd0c76c8d2428a117bc2a8f6205baa750cbfd1d01cdd817dd23"
+content-hash = "7826266d9f4f483c4f30ae1311e9b3da72e0bf9d3bb0c11e87496a59573071f1"
 
 [metadata.files]
 appnope = [
@@ -611,6 +627,7 @@ pyzmq = [
     {file = "pyzmq-22.0.3-pp37-pypy37_pp73-win32.whl", hash = "sha256:279cc9b51db48bec2db146f38e336049ac5a59e5f12fb3a8ad864e238c1c62e3"},
     {file = "pyzmq-22.0.3.tar.gz", hash = "sha256:f7f63ce127980d40f3e6a5fdb87abf17ce1a7c2bd8bf2c7560e1bbce8ab1f92d"},
 ]
+sgmusic = []
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
     {file = "six-1.15.0.tar.gz", hash = "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"},

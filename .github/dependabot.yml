@@ -1,6 +1,8 @@
 version: 2
 updates:
-  # Enable version updates for poetry
-  - package-ecosystem: "pip" 
+
+  - package-ecosystem: "pip"
     directory: "/"
-    schedule.interval: "weekly"
+    schedule:
+      # Check for updates every weekday
+      interval: "daily"

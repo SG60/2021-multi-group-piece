@@ -11,7 +11,7 @@ sgmusic = {path = "../sgmusic", develop = true}
 
 
 [tool.poetry.dev-dependencies]
-ipykernel = "^5.5.3"
+ipykernel = "^6.7.0"
 pytest = "^6.2.3"
 
 [build-system]
